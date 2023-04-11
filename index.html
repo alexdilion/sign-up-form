@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sign-up Form</title>
-        <link rel="stylesheet" href="style.css" />
+        <title>Sign Up Form</title>
+		<link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="splash"></div>
         <div class="main">
-            <div class="image-card"></div>
-            <div class="content">
-                <div class="form-container">
-                    <section>
-                        <h1>Create an account</h1>
-                        <h2>Discover endless possibilities!</h2>
-                    </section>
-                    <form action="" method="get" class="form"></form>
-                </div>
-            </div>
-        </div>
+			<section class="introduction">
+				<h1>Create an Account</h1>
+				<h2>Discover limitless possibilities!</h2>
+			</section>
+			<form action="" method="get" class="form">
+				<div>
+					<label for="first-name">First Name</label>
+					<input name="first_name" id="first-name" placeholder="John" required/>
+				</div>
+				<div>
+					<label for="surname">Surname</label>
+					<input name="surname" id="surname" placeholder="Doe" required/>
+				</div>
+				<div>
+					<label for="email">Email</label>
+					<input name="email" id="email" placeholder="johndoe@gmail.com" required/>
+				</div>
+				<div>
+					<label for="phoneNo">Phone Number</label>
+					<input text="tel" name="phoneNo" id="phoneNo" placeholder="123-456-7890" required/>
+				</div>
+				<div>
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" required/>
+				</div>
+				<div>
+					<label for="password-confirmation">Password Confirmation</label>
+					<input type="password" name="" id="" placeholder="" required/>
+				</div>
+			</form>
+		</div>
     </body>
 </html>

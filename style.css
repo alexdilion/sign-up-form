@@ -1,67 +1,80 @@
-@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,200&display=swap");
 
-.light:root {
-    --bg-color: #f2f2f2;
-    --accent: #05a6a6;
-    --text-color: #010c0f;
-}
-
-.dark:root {
-	--bg-color: #010c0f;
-    --accent: #05a6a6;
-    --text-color: #f2f2f2;
-}
-
-*,
-::before,
-::after {
+* {
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     height: 100vh;
-    background-color: var(--bg-color);
+    display: grid;
+    margin: 0;
+    grid-template-columns: 1fr 1.618fr;
+}
+
+.splash {
+    background-image: url("./images/splash.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    border-radius: 0 2rem 2rem 0;
+    box-shadow: rgba(17, 17, 17, 0.15) 0px 8px 24px, 
+				rgba(17, 17, 17, 0.15) 0px 16px 56px,
+        		rgba(17, 17, 17, 0.15) 0px 24px 80px;
 }
 
 .main {
-    height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
 }
 
-.image-card {
-    height: 100%;
-    min-width: 40%;
-	border-radius: 0 2rem 2rem 0;
-
-    /* background image */
-    background-image: url(./images/sea.jpg);
-    background-position: bottom;
-    background-size: cover;
-}
-
-.content {
-	flex-grow: 1.61;
-    height: 100%;
-}
-
-h1 {
-    color: var(--accent);
-    font-family: "Fjalla One", sans-serif;
-    letter-spacing: 0.25ch;
-    font-size: 3rem;
-    text-align: center;
-    text-transform: uppercase;
+.introduction h1 {
+    font-family: "Lexend", Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+    font-variant: small-caps;
     margin-bottom: 0;
 }
 
-h2 {
-    color: var(--text-color);
-    font-family: "Roboto", sans-serif;
-	font-style: italic;
-	font-weight: 100;
-    font-size: 2rem;
+.introduction h2 {
+    margin: 1rem 0 4rem;
     text-align: center;
-    margin-top: 0.5rem;
+    font-style: italic;
+    font-weight: 200;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+
+.form {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(1rem + 3vh) 8%;
+}
+
+.form input,
+.form label {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.form label {
+    position: relative;
+    left: 8px;
+}
+
+.form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 2px solid #111;
+}
+
+.form input:focus {
+    background-color: #eee;
+    outline: none;
+    border-bottom: 4px solid #111;
+    margin-bottom: -2px;
 }

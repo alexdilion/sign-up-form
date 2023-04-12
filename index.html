@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sign Up Form</title>
         <link rel="stylesheet" href="style.css" />
-		<script src="./script.js" defer></script>
-	</head>
+        <script src="./script.js" defer></script>
+    </head>
     <body>
         <div class="splash">
             <a href="https://unsplash.com/@pawel_czerwinski">Image provided by Pawel Czerwinski on Unsplash</a>
@@ -25,7 +25,7 @@
                         <strong><span aria-label="required">*</span></strong>
                     </label>
                     <input name="first_name" id="first-name" placeholder="John" required />
-                    <span class="error-message input-message hidden">Please enter your first name</span>
+                    <span class="empty-message input-message hidden">Please enter your first name</span>
                 </div>
                 <div>
                     <label for="surname">
@@ -33,7 +33,7 @@
                         <strong><span aria-label="required">*</span></strong>
                     </label>
                     <input name="surname" id="surname" placeholder="Doe" required />
-                    <span class="error-message input-message hidden">Please enter your surname</span>
+                    <span class="empty-message input-message hidden">Please enter your surname</span>
                 </div>
                 <div>
                     <label for="email">
@@ -41,12 +41,12 @@
                         <strong><span aria-label="required">*</span></strong>
                     </label>
                     <input name="email" id="email" placeholder="johndoe@gmail.com" required />
-                    <span class="error-message input-message hidden">Please enter an email</span>
+                    <span class="empty-message input-message hidden">Please enter an email</span>
                 </div>
                 <div>
                     <label for="phoneNo">Phone Number (optional)</label>
                     <input text="tel" name="phoneNo" id="phoneNo" placeholder="123-456-7890" />
-                    <!-- <span class="error-message input-message hidden"></span> -->
+                    <!-- <span class="empty-message input-message hidden"></span> -->
                 </div>
                 <div>
                     <label for="password">
@@ -54,15 +54,16 @@
                         <strong><span aria-label="required">*</span></strong>
                     </label>
                     <input type="password" name="password" id="password" required placeholder="Your password" />
-                    <span class="error-message input-message hidden">Please enter a password</span>
+                    <span class="empty-message input-message hidden">Please enter a password</span>
                 </div>
                 <div>
                     <label for="password-confirmation">
                         Password Confirmation
                         <strong><span aria-label="required">*</span></strong>
                     </label>
-                    <input type="password" id="password-confirmation" required placeholder="Confirm your password" />
-                    <span class="error-message input-message hidden">Please confirm your password</span>
+                    <input type="password" id="password-confirmation" required placeholder="Confirm your password" minlength="1"/>
+                    <span class="empty-message input-message hidden">Please enter your password again</span>
+					<span class="error-message input-message hidden">Your passwords do not match</span>
                 </div>
                 <button>
                     <span>Sign up</span>

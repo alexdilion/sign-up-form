@@ -5,8 +5,8 @@
     --text-color: #222;
     --bg-color: #fff;
     --input-focus: #dedede;
-	--invalid: #ff4757;
-	--valid: #2ed573;
+    --invalid: #ff4757;
+    --valid: #2ed573;
 }
 
 * {
@@ -25,11 +25,11 @@ body {
 }
 
 .visible {
-	display: block;
+	opacity: 1;
 }
 
 .hidden {
-	display: none;
+	opacity: 0;
 }
 
 .splash {
@@ -43,7 +43,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-	padding-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
 .splash a {
@@ -94,13 +94,13 @@ a::after {
 }
 
 .form div {
-	position: relative;
+    position: relative;
 }
 
 .form div > p {
-	position: absolute;
-	top: -3.5em;
-	left: 8px;
+    position: absolute;
+    top: -3.5em;
+    left: 8px;
 }
 
 .form input,
@@ -115,7 +115,7 @@ a::after {
 }
 
 .form label span {
-	color: var(--invalid);
+    color: var(--invalid);
 }
 
 .form input {
@@ -124,15 +124,16 @@ a::after {
     border: none;
     border-bottom: 2px solid var(--text-color);
     background-color: transparent;
-	transition: border-color .33s ease;
+    transition: border-color 0.33s ease;
 }
 
 .form .input-message {
-	color: var(--invalid);
-	font-size: 1em;
-	position: absolute;
-	left: 8px;
-	bottom: -1.5em;
+    color: var(--invalid);
+    font-size: 1em;
+    position: absolute;
+    left: 8px;
+    bottom: -1.5em;
+	transition: opacity 0.33s ease;
 }
 
 .form input:focus {
@@ -144,23 +145,23 @@ a::after {
 
 .form input:focus:invalid,
 .form input:focus:valid {
-	border-color: var(--text-color);
+    border-color: var(--text-color);
 }
 
 .form input:invalid {
-	border-color: var(--invalid);
+    border-color: var(--invalid);
 }
 
 .form input:valid {
-	border-color: var(--valid);
+    border-color: var(--valid);
 }
 
-.form input:valid + .error-message {
-	display: none;
+.form input:valid + .empty-message.visible {
+    display: none;
 }
 
 .form input:placeholder-shown {
-	border-color: var(--text-color);
+    border-color: var(--text-color);
 }
 
 /* Submit button styling */

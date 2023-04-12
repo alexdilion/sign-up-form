@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,200&display=swap");
 
+:root {
+    --text-color: #222;
+    --bg-color: #fff;
+    --input-focus: #dedede;
+	--invalid: #ff4757;
+	--valid: #2ed573;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -10,22 +18,53 @@ body {
     display: grid;
     margin: 0;
     grid-template-columns: 1fr 1.618fr;
+    color: var(--text-color);
+    position: relative;
+    background-color: var(--bg-color);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.visible {
+	display: block;
+}
+
+.hidden {
+	display: none;
 }
 
 .splash {
     background-image: url("./images/splash.jpg");
-    min-height: 100vh;
     background-size: cover;
     border-radius: 0 2rem 2rem 0;
-    box-shadow: rgba(17, 17, 17, 0.15) 0px 8px 24px, 
-				rgba(17, 17, 17, 0.15) 0px 16px 56px,
-        		rgba(17, 17, 17, 0.15) 0px 24px 80px;
+
+    box-shadow: rgba(17, 17, 17, 0.15) 0px 8px 24px, rgba(17, 17, 17, 0.15) 0px 16px 56px,
+        rgba(17, 17, 17, 0.15) 0px 24px 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+	padding-bottom: 1rem;
+}
+
+.splash a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 100px;
+}
+
+a::after {
+    content: url("./images/external-link.svg");
+    margin-left: 5px;
+    color: red;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2rem;
 }
 
@@ -33,11 +72,12 @@ body {
     font-family: "Lexend", Arial, Helvetica, sans-serif;
     font-size: 4rem;
     font-variant: small-caps;
-    margin-bottom: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .introduction h2 {
-    margin: 1rem 0 4rem;
+    margin: 1rem 0 6rem;
     text-align: center;
     font-style: italic;
     font-weight: 200;
@@ -50,12 +90,21 @@ body {
     max-width: 1000px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: calc(1rem + 3vh) 8%;
+    gap: calc(1.5rem + 3vh) 8%;
+}
+
+.form div {
+	position: relative;
+}
+
+.form div > p {
+	position: absolute;
+	top: -3.5em;
+	left: 8px;
 }
 
 .form input,
 .form label {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -65,16 +114,106 @@ body {
     left: 8px;
 }
 
+.form label span {
+	color: var(--invalid);
+}
+
 .form input {
     width: 100%;
     padding: 0.5rem;
     border: none;
-    border-bottom: 2px solid #111;
+    border-bottom: 2px solid var(--text-color);
+    background-color: transparent;
+	transition: border-color .33s ease;
+}
+
+.form .input-message {
+	color: var(--invalid);
+	font-size: 1em;
+	position: absolute;
+	left: 8px;
+	bottom: -1.5em;
 }
 
 .form input:focus {
-    background-color: #eee;
+    background-color: var(--input-focus);
     outline: none;
-    border-bottom: 4px solid #111;
+    border-bottom: 4px solid var(--text-color);
     margin-bottom: -2px;
+}
+
+.form input:focus:invalid,
+.form input:focus:valid {
+	border-color: var(--text-color);
+}
+
+.form input:invalid {
+	border-color: var(--invalid);
+}
+
+.form input:valid {
+	border-color: var(--valid);
+}
+
+.form input:valid + .error-message {
+	display: none;
+}
+
+.form input:placeholder-shown {
+	border-color: var(--text-color);
+}
+
+/* Submit button styling */
+
+.form button {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-family: "Lexend", Arial, Helvetica, sans-serif;
+
+    grid-column: 1 / 3;
+    padding: 1rem;
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+
+    appearance: none;
+    border: 2px solid var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.form button span {
+    z-index: 10;
+    position: relative;
+    color: var(--text-color);
+    transition: color 0.33s ease;
+}
+
+.form button::after {
+    position: absolute;
+    content: "";
+    width: calc(100% - 4px);
+    bottom: 2px;
+    left: 2px;
+    height: 0%;
+    transition: height 0.33s ease;
+    z-index: 1;
+}
+
+.form button:hover {
+    cursor: pointer;
+}
+
+.form button:hover > span,
+.form button:focus > span {
+    color: white;
+}
+
+.form button:hover::after,
+.form button:focus::after {
+    height: calc(100% - 4px);
+    background-color: var(--text-color);
+}
+
+.form button:focus-visible {
+    outline: none;
 }

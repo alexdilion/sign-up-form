@@ -5,41 +5,69 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sign Up Form</title>
-		<link rel="stylesheet" href="style.css">
-    </head>
+        <link rel="stylesheet" href="style.css" />
+		<script src="./script.js" defer></script>
+	</head>
     <body>
-        <div class="splash"></div>
+        <div class="splash">
+            <a href="https://unsplash.com/@pawel_czerwinski">Image provided by Pawel Czerwinski on Unsplash</a>
+        </div>
         <div class="main">
-			<section class="introduction">
-				<h1>Create an Account</h1>
-				<h2>Discover limitless possibilities!</h2>
-			</section>
-			<form action="" method="get" class="form">
-				<div>
-					<label for="first-name">First Name</label>
-					<input name="first_name" id="first-name" placeholder="John" required/>
-				</div>
-				<div>
-					<label for="surname">Surname</label>
-					<input name="surname" id="surname" placeholder="Doe" required/>
-				</div>
-				<div>
-					<label for="email">Email</label>
-					<input name="email" id="email" placeholder="johndoe@gmail.com" required/>
-				</div>
-				<div>
-					<label for="phoneNo">Phone Number</label>
-					<input text="tel" name="phoneNo" id="phoneNo" placeholder="123-456-7890" required/>
-				</div>
-				<div>
-					<label for="password">Password</label>
-					<input type="password" name="password" id="password" required/>
-				</div>
-				<div>
-					<label for="password-confirmation">Password Confirmation</label>
-					<input type="password" name="" id="" placeholder="" required/>
-				</div>
-			</form>
-		</div>
+            <section class="introduction">
+                <h1>Create an Account</h1>
+                <h2>Discover limitless possibilities!</h2>
+            </section>
+            <form action="" method="get" class="form">
+                <div>
+                    <p>Text boxes marked with * are required</p>
+                    <label for="first-name">
+                        First Name
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <input name="first_name" id="first-name" placeholder="John" required />
+                    <span class="error-message input-message hidden">Please enter your first name</span>
+                </div>
+                <div>
+                    <label for="surname">
+                        Surname
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <input name="surname" id="surname" placeholder="Doe" required />
+                    <span class="error-message input-message hidden">Please enter your surname</span>
+                </div>
+                <div>
+                    <label for="email">
+                        Email
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <input name="email" id="email" placeholder="johndoe@gmail.com" required />
+                    <span class="error-message input-message hidden">Please enter an email</span>
+                </div>
+                <div>
+                    <label for="phoneNo">Phone Number (optional)</label>
+                    <input text="tel" name="phoneNo" id="phoneNo" placeholder="123-456-7890" />
+                    <!-- <span class="error-message input-message hidden"></span> -->
+                </div>
+                <div>
+                    <label for="password">
+                        Password
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <input type="password" name="password" id="password" required placeholder="Your password" />
+                    <span class="error-message input-message hidden">Please enter a password</span>
+                </div>
+                <div>
+                    <label for="password-confirmation">
+                        Password Confirmation
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <input type="password" id="password-confirmation" required placeholder="Confirm your password" />
+                    <span class="error-message input-message hidden">Please confirm your password</span>
+                </div>
+                <button>
+                    <span>Sign up</span>
+                </button>
+            </form>
+        </div>
     </body>
 </html>
